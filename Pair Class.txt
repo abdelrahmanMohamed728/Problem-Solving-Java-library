@@ -1,0 +1,17 @@
+class pair  implements Comparable
+{
+
+    int key;
+    int value;
+    public pair(Object key, Object value) {
+       
+        this.key = (int)key;
+        this.value=(int)value;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+       pair temp =(pair)o;
+      return  key-temp.key;
+    }
+}

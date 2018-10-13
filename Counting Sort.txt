@@ -1,0 +1,16 @@
+ static void countingSort(int[] a,int start,int end ,int n)
+   {
+       int max = getMax(a,n);
+       int[] ans = new int[n];
+       int[] nums = new int[max+1];
+       for (int i =start;i<end;i++)
+           nums[a[i]]++;
+       for (int i=1;i<=max;i++)
+           nums[i]+=nums[i-1];
+       for (int i =start;i<end;i++) {
+           ans[nums[a[i]] - 1+start] = a[i];
+           nums[a[i]]--;
+       }
+       for (int i=start;i<end;i++)
+           a[i] = ans[i];
+   }

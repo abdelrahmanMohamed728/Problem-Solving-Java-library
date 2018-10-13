@@ -43,30 +43,14 @@
 
                 j++;
             }
-            else if (L[j]>R[k])
+            else
             {
                 a[i] = R[k];
                 b[i] = R1[k];
 
                 k++;
             }
-            else 
-            {
-                if (L1[j] < R1[k])
-                {
-                    a[i] = L[j];
-                    b[i] = L1[j];
-
-                    j++;
-                }
-                else 
-                {
-                    a[i] = R[k];
-                    b[i] = R1[k];
-
-                    k++;
-                }
-            }
+            
 
         }
     }

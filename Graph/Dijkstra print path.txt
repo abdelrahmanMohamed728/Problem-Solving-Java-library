@@ -1,0 +1,52 @@
+  static int[] Dijkstra(int src,int dit)
+    {
+        boolean[]visited = new boolean[n+1];
+        int[] dist= new int[n+1];
+        int[]prev = new int[n];
+        Arrays.fill(prev,-1);
+        Arrays.fill(dist,Integer.MAX_VALUE);
+        dist[src] =0;
+        PriorityQueue<pair> p = new PriorityQueue<>();
+        p.add(new pair(0,src));
+        for (int j=1;j<n+1;j++)
+        {
+
+
+            if (p.isEmpty())
+                return null;
+            pair temp = p.poll();
+
+            int min = temp.value;
+
+            if (min==dit)
+                return prev;
+
+            visited[min] = true;
+
+            for (pair edge : g.adjList[min]) {
+                if (!visited[edge.value]) {
+                    if (edge.key+temp.key<dist[edge.value]) {
+                        dist[edge.value]=edge.key+temp.key;
+                        prev[edge.value-1]=min;
+                        p.add(new pair(edge.key + temp.key, edge.value));
+                    }
+                }
+            }
+
+        }
+        return prev;
+
+    }
+          
+if (temp==null)
+    out.printLine(-1);
+else {
+    Stack<Integer> stack = new Stack<>();
+    int node = n;
+    while (node != -1) {
+        stack.push(node - 1);
+        node = temp[node - 1];
+    }
+    while (!stack.isEmpty())
+        out.print(stack.pop() + 1 + " ");
+}

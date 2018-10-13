@@ -1,0 +1,21 @@
+  static void DFS(Graph g,int v)
+    {
+        boolean[] visited = new boolean[g.n];
+        DFSUtil(g,visited,v);
+    }
+    static  void DFSUtil(Graph g,boolean[] visited,int v)
+    {
+        visited[v] = true;
+
+        int i=0;
+        int size = g.adjList[v].size();
+        
+        while (i<size)
+        {
+           int index = g.adjList[v].get(i);
+            if (!visited[index])
+                DFSUtil(g,visited,index);
+            i++;
+
+        }
+    }

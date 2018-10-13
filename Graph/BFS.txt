@@ -1,0 +1,24 @@
+static int BFS(Graph g,int n,int start)
+   {
+       boolean[]visited = new boolean[n];
+       Queue<Integer> q = new LinkedList<>();
+       visited[start] = true;
+       q.add(start);
+       int counter =0;
+       while(!q.isEmpty())
+       {
+           int index = q.poll();
+
+           for (int i=0;i<g.adjList[index].size();i++ )
+           {
+
+               if (!visited[g.adjList[index].get(i)]) {
+                   visited[g.adjList[index].get(i)] = true;
+                   q.add(g.adjList[index].get(i));
+                   counter++;
+               }
+           }
+
+       }
+       return  counter;
+   }

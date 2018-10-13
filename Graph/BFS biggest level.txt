@@ -1,0 +1,33 @@
+ static int BFS(int n,int start)
+    {
+        boolean[]visited = new boolean[n];
+        Queue<Integer> q = new LinkedList<>();
+        visited[start] = true;
+        q.add(start);
+        q.add(-1);
+
+        int level=0;
+
+
+        while(!q.isEmpty()) {
+            int index = q.poll();
+            if(index == -1){
+                level++;
+                q.add(-1);
+                if(q.peek() == -1) break;// You are encountering two consecutive `nulls` means, you visited all the nodes.
+                else continue;
+            }
+            for (int i = 0; i < g.adjList[index].size(); i++) {
+
+                if (!visited[g.adjList[index].get(i)]) {
+                    visited[g.adjList[index].get(i)] = true;
+                    q.add(g.adjList[index].get(i));
+
+
+                }
+            }
+        }
+
+
+        return  level;
+    }

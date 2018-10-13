@@ -1,0 +1,14 @@
+class Graph {
+
+
+    int n;
+    ArrayList<pair>[] adjList;
+
+    public Graph(int n) {
+        this.n = n;
+        adjList = new ArrayList[n];
+        for (int i = 0; i < n; i++)
+            adjList[i] = new ArrayList<>();
+    }
+
+}
